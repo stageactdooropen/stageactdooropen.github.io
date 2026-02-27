@@ -73,7 +73,7 @@
           </div>
           <img src="./static/images/door_push_title_v2.png" alt="Teaser: door push v2" style="border-radius: 10px; width: 100%; height: auto; margin-top: 0.75rem;" loading="lazy"/>
           <p class="subtitle is-5" style="margin-top: 0.5rem;">
-            Autonomous door opening by the G1 humanoid robot in a real-world office. Time-synchronized front (top) and back (bottom) views illustrate the full sequence of contact-rich, long-horizon loco-manipulation task: approaching handle â†’ rotating latch â†’ pushing door open â†’  and walking through.
+            Autonomous door opening by the G1 humanoid robot in a real-world office. Time-synchronized front (top) and back (bottom) views illustrate the full sequence of contact-rich, long-horizon loco-manipulation task: approaching handle → rotating latch → pushing door open →  and walking through.
           </p>
         </div>
       </div>
@@ -90,7 +90,7 @@
         <div class="content">
           <ul>
             <li>Stage-conditioned imitation learning (StageACT) helps disambiguate partial observations in long-horizon tasks.</li> 
-            <li>55% success on unseen doors â†’ 2â€“5Ã— the ACT baselinesâ€”with shorter completion time.</li>
+            <li>55% success on unseen doors → 2–5× the ACT baselines—with shorter completion time.</li>
             <li>Stage prompts enable recovery and intentional out-of-sequence behaviors.</li>
           </ul>
         </div>
@@ -111,7 +111,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Humanoid robots promise to operate in everyday human environments without requiring modifications to the surroundings. Among the many skills needed, opening doors is essential, as doors are the most common gateways in built spaces and often limit where a robot can go. Door opening, however, poses unique challenges as it is a long-horizon task under partial observability, such as reasoning about the doorâ€™s unobservable latch state that dictates whether the robot should rotate the handle or push the door. This ambiguity makes standard behavior cloning prone to mode collapse, yielding blended or out-of-sequence actions. 
+              Humanoid robots promise to operate in everyday human environments without requiring modifications to the surroundings. Among the many skills needed, opening doors is essential, as doors are the most common gateways in built spaces and often limit where a robot can go. Door opening, however, poses unique challenges as it is a long-horizon task under partial observability, such as reasoning about the door’s unobservable latch state that dictates whether the robot should rotate the handle or push the door. This ambiguity makes standard behavior cloning prone to mode collapse, yielding blended or out-of-sequence actions. 
             </p>
             <p>
               We introduce <strong>StageACT</strong>, a stage-conditioned imitation learning framework that augments low-level policies with task-stage inputs. This simple addition increases robustness to partial observability, leading to higher success rates and shorter completion times. On a humanoid operating in a real-world office environment, <strong>StageACT</strong> achieves a 55% success rate on previously unseen doors, more than doubling the best baseline. Moreover, our method supports intentional behavior guidance through stage prompting, enabling recovery behaviors. These results highlight stage conditioning as a lightweight yet powerful mechanism for long-horizon humanoid loco-manipulation.
@@ -248,7 +248,7 @@
         <h2 class="title is-3">Q2. Beyond replaying the dataset, can stage prompts guide new behaviors at test time?</h2>
         <div class="content has-text-justified">
           <p>
-            Yes. Stage prompts provide controllability, including intentional non-sequential execution: we can command S1â†’S4â†’S5, skipping Approach and Rotate, and the policy executes actions consistent with the prompted stage rather than immediate observations. This is useful when the latch is already disengaged so the robot can push directly, even though no such demonstrations were in the dataset; Fig. 7 serves as the primary reference for stage-guided behavior.              </p>
+            Yes. Stage prompts provide controllability, including intentional non-sequential execution: we can command S1→S4→S5, skipping Approach and Rotate, and the policy executes actions consistent with the prompted stage rather than immediate observations. This is useful when the latch is already disengaged so the robot can push directly, even though no such demonstrations were in the dataset; Fig. 7 serves as the primary reference for stage-guided behavior.              </p>
         </div>
         <div class="content has-text-centered" style="margin-top: 0.75rem;">
           <img src="./static/images/result_recovery.jpg" alt="Recovery behavior example" style="border-radius: 10px; width: 100%; height: auto; max-width: 720px;" loading="lazy"/>
@@ -265,7 +265,7 @@
         <h2 class="title is-3">Q3. How do you train this?</h2>
         <div class="content has-text-justified">
           <p>
-            We train StageACT on teleoperated demonstrations collected with a whole-body setup: a Unitree G1 with Dex-3 hands, where an Apple Vision Pro tracks the operatorâ€™s hands and retargets them to the robot via inverse kinematics. Locomotion is issued as simple base velocity commands while the operator controls arms and hands, which makes loco-manipulation teleop practical. The resulting dataset has 135 successful demos, gathered by two operators over two days in two offices (>8 hours). Each trajectory logs a 480Ã—640 egocentric RGB image, a 29-D robot state (upper body, both hands, 
+            We train StageACT on teleoperated demonstrations collected with a whole-body setup: a Unitree G1 with Dex-3 hands, where an Apple Vision Pro tracks the operator’s hands and retargets them to the robot via inverse kinematics. Locomotion is issued as simple base velocity commands while the operator controls arms and hands, which makes loco-manipulation teleop practical. The resulting dataset has 135 successful demos, gathered by two operators over two days in two offices (>8 hours). Each trajectory logs a 480×640 egocentric RGB image, a 29-D robot state (upper body, both hands, 
           </p>
           <div class="content has-text-centered" style="margin-top: 0.5rem;">
             <div style="max-width: 720px; margin: 0 auto;">
