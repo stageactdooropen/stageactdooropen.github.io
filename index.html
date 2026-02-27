@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content=".">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StageACT: Stage-Conditioned Imitation for Robust Humanoid Door Opening</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+
+<section class="hero masthead-hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered masthead">
+          <h1 class="title is-1 headline">StageACT: Stage-Conditioned Imitation for Robust Humanoid Door Opening</h1>
+          <div class="is-size-5 byline">
+            <span class="byline-item">
+              Annonymous Authors
+            </span>                            
+          </div>
+
+
+
+          <div class="column has-text-centered">
+            <div class="action-bar">
+              <!-- Paper (TBA) -->
+              <span class="action-item">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper (PDF)</span>
+                </a>
+              </span>
+              <!-- Video -->
+              <span class="action-item">
+                <a href="https://youtu.be/iqnkwkg7u7k" 
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-video"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Dataset -->
+
+              <!-- Code -->
+              <span class="action-item">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code(TBA)</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+          <img src="./static/images/door_push_title_v2.png" alt="Teaser: door push v2" style="border-radius: 10px; width: 100%; height: auto; margin-top: 0.75rem;" loading="lazy"/>
+          <p class="subtitle is-5" style="margin-top: 0.5rem;">
+            Autonomous door opening by the G1 humanoid robot in a real-world office. Time-synchronized front (top) and back (bottom) views illustrate the full sequence of contact-rich, long-horizon loco-manipulation task: approaching handle â†’ rotating latch â†’ pushing door open â†’  and walking through.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TL;DR under hero -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-10">
+        <h2 class="title is-4">TL;DR</h2>
+        <div class="content">
+          <ul>
+            <li>Stage-conditioned imitation learning (StageACT) helps disambiguate partial observations in long-horizon tasks.</li> 
+            <li>55% success on unseen doors â†’ 2â€“5Ã— the ACT baselinesâ€”with shorter completion time.</li>
+            <li>Stage prompts enable recovery and intentional out-of-sequence behaviors.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Additional static items below abstract -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered">
+      <div class="column is-7">
+        <div class="summary-card">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Humanoid robots promise to operate in everyday human environments without requiring modifications to the surroundings. Among the many skills needed, opening doors is essential, as doors are the most common gateways in built spaces and often limit where a robot can go. Door opening, however, poses unique challenges as it is a long-horizon task under partial observability, such as reasoning about the doorâ€™s unobservable latch state that dictates whether the robot should rotate the handle or push the door. This ambiguity makes standard behavior cloning prone to mode collapse, yielding blended or out-of-sequence actions. 
+            </p>
+            <p>
+              We introduce <strong>StageACT</strong>, a stage-conditioned imitation learning framework that augments low-level policies with task-stage inputs. This simple addition increases robustness to partial observability, leading to higher success rates and shorter completion times. On a humanoid operating in a real-world office environment, <strong>StageACT</strong> achieves a 55% success rate on previously unseen doors, more than doubling the best baseline. Moreover, our method supports intentional behavior guidance through stage prompting, enabling recovery behaviors. These results highlight stage conditioning as a lightweight yet powerful mechanism for long-horizon humanoid loco-manipulation.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-5">
+        <video autoplay muted loop playsinline style="width: 100%; height: 85%; border-radius: 10px; object-fit: cover; object-position: bottom;">
+          <source src="./static/videos/dooropen.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<!-- video of working -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+          <iframe src="https://www.youtube.com/embed/iqnkwkg7u7k" title="Humanoid Door Opening" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<!-- GIFS for challenges and GIFS for imitation failing -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3">Challenges in Partial Observability</h2>
+
+    <!-- First Row: 1 GIF and Text Column -->
+    <p>
+      Key information, such as the latch state of the door, is not directly observable. Given visually almost-identical observations, similar actions can lead to drastically different outcomes.  
+    </p>
+
+    <div class="columns">
+      <div class="column">
+        <div class="dataset">
+          <img src="./static/images/cam1.gif" alt="doorpush fail" style="width: 100%; height: auto;">
+          <p class="caption" style="text-align: center;"><span style="color: red;">Failure case</span> - door remains latched </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="dataset">
+          <img src="./static/images/cam2.gif" alt="doorpush success" style="width: 100%; height: auto;">
+          <p class="caption" style="text-align: center;"><span style="color: green;">Successful case</span> - door unlatched </p>
+        </div>
+      </div>
+    </div>
+
+  <!-- Second Row: 3 GIFs with Text -->
+  <div class="columns">
+    <div class="column">
+      <div class="contact-policy">
+        <img src="./static/images/door1.gif" alt="blending trajectories" style="width: 100%; height: 500px; object-fit: cover;">
+      </div>
+    </div>
+    <div class="column">
+      <div class="contact-policy">
+        <img src="./static/images/door2.gif" alt="out of sequence" style="width: 100%; height: 500px; object-fit: cover;">
+      </div>
+    </div>
+    <div class="column">
+      <div class="contact-policy">
+        <img src="./static/images/door3.gif" alt="imprecise trajectories" style="width: 100%; height: 500px; object-fit: cover;">
+      </div>
+    </div>
+  </div>
+  <p class="subtitle has-text-centered">
+    <span class="dnerf"> <span style="color: red;">Failure cases</span> of the naive imitation learning policy that struggle to disambiguate partial observations in a long-horizon door opening task. (Left) Blending of trajectories, (Middle) out of sequence motions, (Right) imprecise trajectories.
+  </p>
+  </div>
+</section>
+
+
+
+
+<!-- StageACT section moved below Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">StageACT</h2>
+        <div class="content has-text-justified">
+          <p>
+            StageACT is a stage-conditioned imitation learning policy for humanoid door opening. The core idea is to append a compact stage label to the usual sensory inputs so the policy knows where it is in the task. We keep a single low-level policy rather than splitting locomotion and manipulation, and feed a one-hot stage vector together with the current image and robot state. Stages are defined as search, approach, rotate, push, and stop, and are annotated offline by combining visual inspection with proprioceptive cues, where sharp torque spikes mark transitions. Conditioning on this stage information adds temporal context that resolves look-alike observations in a partially observable, long-horizon setting and reduces mode collapse.
+          </p>
+          <p>
+            In practice, the policy follows ACT's execution style. It predicts short action chunks of roughly 3 seconds that are temporally smoothed for stability, using the current camera image and robot state as inputs along with the stage vector, and it outputs short sequences of whole-body actions. Training uses standard imitation objectives, with minimal changes to accommodate stage conditioning. The same stage vector also serves as a prompt at test time, which enables recovery by returning to an earlier stage and supports intentional non-sequential behaviors when needed. 
+          </p>
+        </div>
+        <div class="content has-text-centered" style="margin-top: 1rem;">
+          <div style="max-width: 720px; margin: 0 auto;">
+            <img src="./static/images/fig_method_software_v2.png" alt="StageACT software overview" style="border-radius: 10px; width: 100%; height: auto;" loading="lazy"/>
+            <p class="is-size-6 has-text-grey" style="margin-top: 0.5rem;">Our framework combines stage-level guidance with lowlevel control, allowing policies to disambiguate partial observations and execute contact-rich tasks more reliably.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Q&A sections -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Q1. Does stage-conditioning improve policy performance compared to a standard imitation baseline?</h2>
+        <div class="content has-text-justified">
+          <p>
+            Yes. StageACT reaches 55% success on an unseen door while the best ACT baseline is 20%, and it completes faster (20.7s vs 27.5s). The biggest lift shows up in the ambiguous Approach phase: ACT succeeds 7/20 times versus 17/19 for StageACT, which aligns with the claim that stage input resolves observation ambiguity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Q2. Beyond replaying the dataset, can stage prompts guide new behaviors at test time?</h2>
+        <div class="content has-text-justified">
+          <p>
+            Yes. Stage prompts provide controllability, including intentional non-sequential execution: we can command S1â†’S4â†’S5, skipping Approach and Rotate, and the policy executes actions consistent with the prompted stage rather than immediate observations. This is useful when the latch is already disengaged so the robot can push directly, even though no such demonstrations were in the dataset; Fig. 7 serves as the primary reference for stage-guided behavior.              </p>
+        </div>
+        <div class="content has-text-centered" style="margin-top: 0.75rem;">
+          <img src="./static/images/result_recovery.jpg" alt="Recovery behavior example" style="border-radius: 10px; width: 100%; height: auto; max-width: 720px;" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Q3. How do you train this?</h2>
+        <div class="content has-text-justified">
+          <p>
+            We train StageACT on teleoperated demonstrations collected with a whole-body setup: a Unitree G1 with Dex-3 hands, where an Apple Vision Pro tracks the operatorâ€™s hands and retargets them to the robot via inverse kinematics. Locomotion is issued as simple base velocity commands while the operator controls arms and hands, which makes loco-manipulation teleop practical. The resulting dataset has 135 successful demos, gathered by two operators over two days in two offices (>8 hours). Each trajectory logs a 480Ã—640 egocentric RGB image, a 29-D robot state (upper body, both hands, 
+          </p>
+          <div class="content has-text-centered" style="margin-top: 0.5rem;">
+            <div style="max-width: 720px; margin: 0 auto;">
+              <img src="./static/images/fig_method_teleop_v2.png" alt="Whole-body teleoperation overview" style="border-radius: 10px; width: 100%; height: auto;" loading="lazy"/>
+              <p class="is-size-6 has-text-grey" style="margin-top: 0.5rem;">Overview of whole body teleoperation setup based on the G1 humanoid robot.</p>
+            </div>
+          </div>
+
+          <p>
+            To inject temporal context, we annotate five stages (search, approach, rotate, push, stop) offline, combining visual inspection with proprioceptive cues, where sharp torque spikes indicate contact transitions. During training and evaluation, these stage labels are one-hot vectors concatenated with the usual inputs so the policy can disambiguate look-alike observations and avoid mode collapse.
+          </p>
+          <div class="content has-text-centered" style="margin-top: 0.5rem;">
+            <div style="max-width: 720px; margin: 0 auto;">
+              <img src="./static/images/fig_method_phase_annotation_robot_v2.png" alt="Door opening phase annotation" style="border-radius: 10px; width: 100%; height: auto;" loading="lazy"/>
+              <p class="is-size-6 has-text-grey" style="margin-top: 0.5rem;">Long-horizon task of door opening categorized into sub-stages.</p>
+            </div>
+          </div>
+          <p>
+            The learning recipe follows ACT with a small modification for stage input: we optimize a standard imitation reconstruction loss together with a KL regularizer, predict ~3-second action chunks, and temporally smooth them for stable execution. Hyperparameters and procedures mirror ACT, with changes only to accept the stage vector.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+</body>
+</html>
